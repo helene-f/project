@@ -1,4 +1,5 @@
-<?php $title = htmlspecialchars($post['title']); ?>
+<?php $title = htmlspecialchars($post['title']);
+$picture = htmlspecialchars($post['picture']); ?>
 
 <?php ob_start(); ?>
 <h1>Billet simple pour l'Alaska !</h1>
@@ -8,7 +9,10 @@
         <h3>
             <?= htmlspecialchars($title) ?>
         </h3>
-
+        <p>
+              <?php ?>
+              <img src="<?= htmlspecialchars($picture) ?>" alt="" />
+        </p>
         <p>
             <?= nl2br(htmlspecialchars($post['content'])) ?>
             <br />

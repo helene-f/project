@@ -14,7 +14,10 @@
                     <?= htmlspecialchars($data['title']) ?>
                     <em>le <?= $data['creation_date_fr'] ?></em>
               </h3>
-
+              <p>
+                    <?php $picture = $data['picture'];?>
+                    <img src="<?php echo $picture; ?>" alt="" />
+              </p>
               <p>
                 <?= nl2br(htmlspecialchars($data['content'])) ?>
                     <br />
