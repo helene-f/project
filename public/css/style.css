@@ -1,87 +1,181 @@
-html {
-  background-color: #21252b;
+/* ---------------------
+------------------------
+CSS for listPostsView
+------------------------
+------------------------*/
+
+header {
+  background-image: url("../../public/img/alaska.jpg");
+  background-repeat: no-repeat;
+  height: 350px;
 }
 
-h1, h3 {
+#logo {
+display: block;
+background-repeat: no-repeat;
+width: 150px;
+height: 150px;
+border: 3px solid #A2D5F2;
+border-radius: 50%;
+}
+
+header h1 {
+  text-align: center;
+  color: #fff;
+  padding-top: 100px;
+}
+
+.chapter-list {
+  margin: 40px 20px;
+}
+
+.picture {
+display: block;
+position: relative;
+}
+
+.picture img {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.resume {
+  display: block;
+  position: absolute;
+  background-color: #fff;
+  border: 3px solid #97ECC5;
+  margin-top: 2%;
+  margin-left: -50px;
+}
+
+.resume a {
+  color: #97ECC5;
+}
+
+/* ---------------------
+------------------------
+CSS for PostsView
+------------------------
+------------------------*/
+
+.news h2 {
+    color: #97ECC5;
+    font-size: 2em;
     text-align: center;
 }
 
-h1 {
-  color: white;
-  text-transform: uppercase;
-  font-size: 1.5em;
-}
-
-h2 {
-color: #fff;
-}
-
-h3 {
-    color: #34828d;
-    font-size: 0.9em;
-    margin-bottom: 0px;
-}
-
 h4 {
-  color: black;
+  color: #403321;
   text-align: center;
-  text-decoration: underline;
+  margin-bottom: 15px;
 }
 
-.news {
-  background-color: #fff;
+.news img {
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 15px;
 }
 
 .news p {
-    color: black;
-    margin-top: 20px;
-    margin-bottom: 35px;
+    color: #000;
+    margin : 20px 30px;
     text-align: left;
+}
+
+.news {
+  display: block;
+  padding: 30px 30px;
 }
 
 a, .date {
     text-decoration: none;
-    color: #34828d;
+    color: #48BA95;
 }
 
-/* FORM */
-input {
-border: 2px solid #34828d;
-border-radius: 2px;
-width: 100px;
+/* COMMENT'S FORM  */
 
+form {
+  display: block;
+  border: 2px solid #365e75;
+  max-width: 800px;
+  padding: 30px 30px;
 }
 
-textarea {
-height: 50px;
+.add_comment {
+  display: block;
+  width: 100%;
+  margin: 30px 20px;
+}
+
+.add_pseudo, .add_your_comment {
+  display: flex;
+  flex-direction: row;
+  margin: 10px 20px;
+}
+
+#author, #comment {
+border: 2px solid #48BA95;
+width: 400px;
+}
+
+#author {
+  height: 35px;
+}
+
+#comment {
+  height: 100px;
+  margin-bottom: 20px;
+}
+
+#btn-validation {
+  display: block;
+  margin: 0 auto;
+  border: 2px solid #365e75;
+  text-transform: uppercase;
+  font-size: 1.5em;
+  width: 250px;
+  height: 40px;
+  color: #365e75;
+  background-color: #fff;
+}
+
+#btn-validation:hover {
+  display: block;
+  margin: 0 auto;
+  border: 2px solid #365e75;
+  text-transform: uppercase;
+  font-size: 1.5em;
+  width: 250px;
+  height: 40px;
+  color: #fff;
+  background-color: #365e75;
+}
+/* COMMENTS */
+.comments_post {
+  margin: 20px 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.comments_author {
+  font-size: 16px;
+  color: #365e75;
+}
+
+.comments_date {
+  font-size: 12px;
+  color: #8f8f8f;
 }
 
 /* FOOTER */
 footer {
-  height: 50px;
+  height: 100px;
   text-align: center;
-}
-
-footer p {
+  background-color: #365e75;
   color: #fff;
 }
 
-.comments_post {
-  margin-top: 20px;
-  padding: 2px 15px;
+footer p {
+  padding: 40px 20px;
 }
-
-/*
-#logo {
- width: 100px;
- height: 100px;
-}
-s
-#lirelasuite {
-  display: none;
-}
-
-img {
-width: 100%;
-  margin: 0 auto;
-}*/
