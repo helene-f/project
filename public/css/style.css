@@ -101,13 +101,13 @@ form {
   padding: 30px 30px;
 }
 
-.add_comment {
+.addComment {
   display: block;
   width: 100%;
   margin: 30px 20px;
 }
 
-.add_pseudo, .add_your_comment {
+.addAuthor, .addYourOwnComment {
   display: flex;
   flex-direction: row;
   margin: 10px 20px;
@@ -151,19 +151,19 @@ width: 400px;
   background-color: #365e75;
 }
 /* COMMENTS */
-.comments_post {
+.commentsPost {
   margin: 20px 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
 
-.comments_author {
+.commentsAuthor {
   font-size: 16px;
   color: #365e75;
 }
 
-.comments_date {
+.commentsDate {
   font-size: 12px;
   color: #8f8f8f;
 }

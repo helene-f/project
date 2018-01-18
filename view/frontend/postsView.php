@@ -20,14 +20,14 @@ $picture = htmlspecialchars($post['picture']); ?>
           </div>
 
 
-            <form class="add_comment" action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
+            <form class="addComment" action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
               <h4>Postez un commentaire</h4>
-              <div class="add_pseudo">
+              <div class="addAuthor">
                     <label for="author">Pseudo : </label>
                     <input type="text" id="author" name="author" placeholder="Pseudo" />
               </div>
 
-              <div class="add_your_comment">
+              <div class="addYourOwnComment">
                     <label for="comment">Commentaire : </label>
                     <textarea id="comment" name="comment" placeholder="Votre commentaire"></textarea>
               </div>
@@ -39,13 +39,13 @@ $picture = htmlspecialchars($post['picture']); ?>
 while ($comment = $comments->fetch())
 {
 ?>
-        <div class="comments_post">
+        <div class="commentsPost">
           <div class="info">
-            <p class="comments_author"><strong><?= htmlspecialchars($comment['author']) ?></strong><br />
-            <em class="comments_date"> Posté le <?= $comment['comment_date_fr'] ?></em></p>
+            <p class="commentsAuthor"><strong><?= htmlspecialchars($comment['author']) ?></strong><br />
+            <em class="commentsDate"> Posté le <?= $comment['comment_date_fr'] ?></em></p>
             <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
           </div>
-          <div class="signal-event">
+          <div class="signalEvent">
             <p><a class="signal" href="#">signaler</a></p>
           </div>
         </div>
