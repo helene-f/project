@@ -20,4 +20,13 @@ class PostManager extends Manager
 
       return $post;
   }
+
+  public function editPost($id, $title, $content, $author, $picture)
+  {
+      $db = $this->dbConnect();
+      $posts = $db->prepare('INSERT INTO posts (id, title, content, author, creation_date, picture) VALUES(?, ?, ?, ?, NOW(), ?)');
+      $affectedLines = $posts->execute(array($id, $picture, $title, $content, $author, $picture));
+
+      return $affectedLines;
+  }
 }
