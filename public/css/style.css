@@ -19,6 +19,19 @@ border: 3px solid #A2D5F2;
 border-radius: 50%;
 }
 
+#global {
+  min-height: 100%;  /* Voir commentaire sur html et body plus haut */
+  background: #333534;
+  width: 70%;
+  margin: auto;    /* Permet de centrer la div */
+  text-align: justify;
+  padding: 5px 20px;
+}
+
+#content {
+  margin-bottom : 30px;
+}
+
 header h1 {
   text-align: center;
   color: #fff;
@@ -155,7 +168,7 @@ width: 400px;
   margin: 20px 20px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .commentsAuthor {

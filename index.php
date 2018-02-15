@@ -1,5 +1,6 @@
 <?php
-require('controler/frontend.php');
+require('controler/frontOffice.php');
+require('controler/backOffice.php');
 
 try {
 if (isset($_GET['action'])) {
@@ -35,5 +36,5 @@ else {
 }
 catch(Exception $e) {
   $errorMessage = $e->getMessage();
-  require('view/error.php');
+  require('view/frontOffice/error.php');
 }
