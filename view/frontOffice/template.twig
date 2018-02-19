@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+      {% block head %}
+        <meta charset="utf-8" />
+        <title>{% block title %}{% endblock %} - My webpage</title>
+
+        <link href="public/css/style.css" rel="stylesheet">
+        <link href="public/css/bootstrap.css" rel="stylesheet">
+      {% endblock %}
+    </head>
+
+    <body>
+        <div id="main container-fluid">
+            <header>
+                <h1>{% block title %}{% endblock %}<br />
+                Un roman de Jean Forteroche</h1>
+            </header>
+            <div id="content container">
+                {% block content %}{% endblock %}
+            </div> <!-- #content -->
+            <footer class="container-fluid">
+              {% block footer %}
+                <p id="copyright">© 2018 / Tous droits réservés. Ce blog est entièrement développé en html, css, js et php</p>
+              {% endblock %}
+            </footer>
+        <div> <!-- #main -->
+        <script src="public/js/jquery.js"></script>
+        <script src="public/js/bootstrap.min.js"></script>
+    </body>
+</html>
