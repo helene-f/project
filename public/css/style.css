@@ -1,194 +1,109 @@
-/* ---------------------
-------------------------
-CSS for listPostsView
-------------------------
-------------------------*/
+.newsletter {
+  background-image: url('public/img/aurore-boreale-restons-en-contact.jpg');
 
-header {
-  background-image: url("../../public/img/alaska.jpg");
-  background-repeat: no-repeat;
-  height: 350px;
+
+  /*margin-top: 70px;
+  margin-bottom: 70px;*/
 }
 
-#logo {
-display: block;
-background-repeat: no-repeat;
-width: 150px;
-height: 150px;
-border: 3px solid #A2D5F2;
-border-radius: 50%;
-}
-
-#global {
-  min-height: 100%;  /* Voir commentaire sur html et body plus haut */
-  background: #333534;
-  width: 70%;
-  margin: auto;    /* Permet de centrer la div */
-  text-align: justify;
-  padding: 5px 20px;
-}
-
-#content {
-  margin-bottom : 30px;
-}
-
-header h1 {
+.inscription {
+  padding: 40px 20px;
   text-align: center;
-  color: #fff;
-  padding-top: 100px;
 }
 
-.chapter-list {
-  margin: 40px 20px;
+
+.input-group-addon {
+  margin-right: 10px;
+  margin-left: 30px;
 }
 
-.picture {
-display: block;
-position: relative;
+.subscribe {
+  height: 38px;
+  line-height: 7px;
 }
 
-.picture img {
-  width: 100%;
-  margin: 0 auto;
-}
 
-.resume {
-  display: block;
-  position: absolute;
-  background-color: #fff;
-  border: 3px solid #97ECC5;
-  margin-top: 2%;
-  margin-left: -50px;
-}
-
-.resume a {
-  color: #97ECC5;
-}
-
-/* ---------------------
-------------------------
-CSS for PostsView
-------------------------
-------------------------*/
-
-.news h2 {
-    color: #97ECC5;
-    font-size: 2em;
-    text-align: center;
-}
-
-h4 {
-  color: #403321;
-  text-align: center;
-  margin-bottom: 15px;
-}
-
-.news img {
-  width: 100%;
-  margin: 0 auto;
-  margin-bottom: 15px;
-}
-
-.news p {
-    color: #000;
-    margin : 20px 30px;
-    text-align: left;
-}
-
-.news {
-  display: block;
-  padding: 30px 30px;
-}
-
-a, .date {
-    text-decoration: none;
-    color: #48BA95;
-}
-
-/* COMMENT'S FORM  */
-
-form {
-  display: block;
-  border: 2px solid #365e75;
-  max-width: 800px;
-  padding: 30px 30px;
-}
-
-.addComment {
-  display: block;
-  width: 100%;
-  margin: 30px 20px;
-}
-
-.addAuthor, .addYourOwnComment {
+.pager {
   display: flex;
-  flex-direction: row;
-  margin: 10px 20px;
-}
-
-#author, #comment {
-border: 2px solid #48BA95;
-width: 400px;
-}
-
-#author {
-  height: 35px;
-}
-
-#comment {
-  height: 100px;
-  margin-bottom: 20px;
-}
-
-#btn-validation {
-  display: block;
-  margin: 0 auto;
-  border: 2px solid #365e75;
-  text-transform: uppercase;
-  font-size: 1.5em;
-  width: 250px;
-  height: 40px;
-  color: #365e75;
-  background-color: #fff;
-}
-
-#btn-validation:hover {
-  display: block;
-  margin: 0 auto;
-  border: 2px solid #365e75;
-  text-transform: uppercase;
-  font-size: 1.5em;
-  width: 250px;
-  height: 40px;
-  color: #fff;
-  background-color: #365e75;
-}
-/* COMMENTS */
-.commentsPost {
-  margin: 20px 20px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
-.commentsAuthor {
-  font-size: 16px;
-  color: #365e75;
+  justify-content: space-between;
+  margin: 50px 0px;
 }
 
 .commentsDate {
-  font-size: 12px;
-  color: #8f8f8f;
+  font-size: 16px;
 }
 
-/* FOOTER */
-footer {
-  height: 100px;
+.commentsPost {
+  display: flex;
+  justify-content: space-between;
+}
+
+.commentsPost button {
+  padding: 4px 4px;
+  margin: 50px 10px;
+  border-radius: 4px;
+}
+
+.comments-list h4 {
   text-align: center;
-  background-color: #365e75;
-  color: #fff;
 }
 
-footer p {
-  padding: 40px 20px;
+.comments-list {
+  margin: 50px 0;
 }
+
+a, .btn {
+  text-decoration: none;
+}
+
+a:hover {
+  color: purple;
+}
+
+a:active {
+  color: green;
+}
+
+
+
+/**
+ * NAVBAR SEARCH
+ */
+
+ .navbar-form-search {
+   position: relative;
+   .form-control {
+     width: 250px;
+   }
+   .btn {
+     border: 0;
+     background: transparent;
+     font-size: 18px;
+     &:active,
+     &:hover,
+     &:focus {
+       color: #000;
+       outline: none;
+       box-shadow: none;
+     }
+   }
+
+   .search-form-container {
+     text-align: right;
+     position: absolute;
+     width: 300px;
+     overflow: hidden;
+     background: #fff;
+     right: 60px;
+     top: 0;
+     z-index: 9;
+     transition: all .3s ease-in-out;
+     &.hdn {
+       width: 0;
+     }
+
+     .search-input-group {
+       width: 300px;
+     }
+   }
+ }
