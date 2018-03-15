@@ -1,0 +1,63 @@
+{% extends 'template.twig' %}
+  <title> {{title}} <title>
+
+{% block content %}
+  <a href="index.php">Retour à la liste des billets</a>
+
+  <div class="news">
+      <h1> {{title}} </h1>
+      <img src="{{picture}}" alt="" />
+      <p> {{ post['content'] }} </p>
+      <p><em>Posté par Jean Forteroche le {{ ['creation_date_fr'] }} </em></p>
+  </div>
+{% endblock %}
+
+<?php ob_start(); /* <?php
+$date = array(
+    'date' => '2015-03-17'
+);
+
+echo $template->render($data);
+?><p>
+    {{ date | date_modify("+1 week") | date('M d, Y') }}
+</p>*/?>
+
+
+
+            <form class="addComment" action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
+              <h4>Postez un commentaire</h4>
+              <div class="addAuthor">
+                    <label for="author">Pseudo : </label>
+                    <input type="text" id="author" name="author" placeholder="Pseudo" />
+              </div>
+
+              <div class="addYourOwnComment">
+                    <label for="comment">Commentaire : </label>
+                    <textarea id="comment" name="comment" placeholder="Votre commentaire"></textarea>
+              </div>
+              <input id="btn-validation" type="submit" />
+              </div>
+            </form>
+
+<?php
+while ($comment = $comments->fetch())
+{
+?>
+        <div class="commentsPost">
+          <div class="info">
+            <p class="commentsAuthor"><strong><?= htmlspecialchars($comment['author']) ?></strong><br />
+            <em class="commentsDate"> Posté le <?= $comment['comment_date_fr'] ?></em></p>
+            <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
+          </div>
+          <div class="signalEvent">
+            <p><a class="signal" href="#">signaler</a></p>
+          </div>
+        </div>
+
+
+
+<?php
+}
+
+?>
+<?php $content = ob_get_clean(); ?>
