@@ -144,7 +144,7 @@
                         </li>
 
                         <li class="list-inline-item">
-                            <a href="/view/frontOffice/mentions-legales.php">Mentions légales</a>
+                            <a href="/view/frontOffice/legal-notices.php">Mentions légales</a>
                         </li>
 
                         <li class="list-inline-item">
