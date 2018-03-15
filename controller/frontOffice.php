@@ -19,7 +19,6 @@ function post()
     $post = $postManager->getPost($_GET['id']);
     $comments = $commentManager->getComments($_GET['id']);
     $totalComments = $comments->rowCount();
-    /*$commentManager->countComments();*/
 
     require('view/frontOffice/postsView.php');
 }
@@ -36,15 +35,4 @@ function addComment($postId, $author, $comment)
     else {
         header('Location: index.php?action=post&id=' . $postId);
     }
-
-    /*function totalComments()
-    {
-
-        $commentManager = new CommentManager();
-
-        $totalComments = $commentManager->countComments();
-
-
-
-    }*/
 }

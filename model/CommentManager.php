@@ -20,4 +20,34 @@ class CommentManager extends Manager
 
       return $affectedLines;
   }
+
+  /*public function countComments()
+  {
+      $db = $this->dbConnect();
+      $query = $db->prepare('SELECT COUNT(*) FROM comments');
+      $query->execute();
+      $count = $query->rowCount();
+
+      return $count;
+  }
+
+
+ public function modifyComment($postId, $author, $comment)
+  {
+      $db = $this->dbConnect();
+      $comments = $db->prepare('UPDATE comments SET comment ='$comment' id ='$postId'');
+      /* il faut exécuter la requête
+      $affectedLines = $comments->execute();
+
+
+      return $affectedLines;
+  }
+
+  public function deleteComment($postId)
+  {
+      $id  = $_GET['id'];
+      $db = $this->dbConnect();
+      $comments = $db->execute('DELETE FROM comments WHERE comments .id ='$id'');
+  }
+*/
 }

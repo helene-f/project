@@ -21,7 +21,7 @@ class PostManager extends Manager
       return $post;
   }
 
-  public function editPost($id, $title, $content, $author, $picture)
+  /*public function editPost($id, $title, $content, $author, $picture)
   {
       $db = $this->dbConnect();
       $posts = $db->prepare('INSERT INTO posts (id, title, content, author, creation_date, picture) VALUES(?, ?, ?, ?, NOW(), ?)');
@@ -29,4 +29,11 @@ class PostManager extends Manager
 
       return $affectedLines;
   }
+
+  public function deletePost($postId)
+  {
+      $id  = $_GET['postId'];
+      $db = $this->dbConnect();
+      $post = $db->execute('DELETE FROM posts WHERE postId = '.$id'');
+  }*/
 }
