@@ -8,7 +8,7 @@ function listPosts()
     $postManager = new PostManager();
     $posts = $postManager->getPosts();
 
-    require('view/frontend/listPostsView.php');
+    require('view/frontOffice/listPostsView.php');
 }
 
 function post()
@@ -19,7 +19,7 @@ function post()
     $post = $postManager->getPost($_GET['id']);
     $comments = $commentManager->getComments($_GET['id']);
 
-    require('view/frontend/postsView.php');
+    require('view/frontOffice/postsView.php');
 }
 
 function addComment($postId, $author, $comment)
@@ -33,5 +33,15 @@ function addComment($postId, $author, $comment)
     }
     else {
         header('Location: index.php?action=post&id=' . $postId);
+    }
+
+    function totalComments()
+    {
+
+        $commentManager = new CommentManager();
+
+        $totalComments = $commentManager->countComments();
+
+        require('view/frontOffice/postsView.php');
     }
 }
