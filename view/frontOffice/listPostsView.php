@@ -1,4 +1,6 @@
-<?php $title = 'Billet simple pour l\'Alaska'; ?>
+<?php
+// initialisation des variables titre
+$title = 'Billet simple pour l\'Alaska'; ?>
 
 <?php ob_start(); ?>
 
@@ -22,10 +24,7 @@ while ($data = $posts->fetch())
                 </a>
 
 
-                <p class="post-meta">Ecrit par
-                    <a href="view/frontOffice/about.php">Jean Forteroche</a>
-                    <em>le <?= $data['creation_date_fr'] ?></em>
-                </p>
+                <p class="post-meta">Ecrit le <em><?= $data['creation_date_fr'] ?></em></p>
 
                 <p><?= $extract=substr($data['content'],0,180);
                   echo $extract . "[...]";?>
@@ -68,32 +67,33 @@ while ($data = $posts->fetch())
           </nav>
           <!-- Pagination -->
 
+
   <div class="container newsletter card card-image">
 
 
 
 <!-- Content -->
 <div class="inscription">
-        <h5><i class="fa fa-envelope-o"></i> Inscrivez-vous à la newsletter</h5>
+        <h5><i class="fa fa-envelope-o"></i>Inscrivez-vous à la newsletter</h5>
         <h3 class="card-title"><strong>Restons en contact</strong></h3>
-        <p>Soyez au courant des dernières actualités ou de la prochaine sortie d'un chapitre.</p>
+        <p>Soyez au courant des dernières actualités ou du prochain chapitre.</p>
 
-        <form class="" action="index.html" method="post">
+        <form class="addContact" action="index.php?action=addContact" method="post">
           <div class="form-row">
-            <div class="col">
+            <div class="col-md-4 mb-3">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-user-circle" aria-hidden="true"></i></span>
-                <input name="admin" type="text" id="lastname" placeholder="Votre nom" class="form-control">
+                <input name="contactName" type="text" id="contactName" placeholder="Votre nom" class="form-control">
               </div>
             </div>
-            <div class="col">
+            <div class="col-md-4 mb-3">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
-                <input type="email" name="email" id="email"  placeholder="Entrez votre email" class="form-control"/>
+                <input type="email" name="contactEmail" id="contactEmail"  placeholder="Entrez votre email" class="form-control"/>
               </div>
             </div>
-            <div class="col-md-3 ">
-                <button class="btn btn-primary subscribe"><i class="fa fa-paper-plane"></i> s'inscrire</button>
+            <div class="col-md-4 mb-3">
+                <button type="button" class="btn btn-primary subscribe"><i class="fa fa-paper-plane"></i> s'inscrire</button>
             </div>
           </div>
         </form>

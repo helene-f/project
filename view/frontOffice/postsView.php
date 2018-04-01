@@ -11,23 +11,24 @@ $picture = htmlspecialchars($post['picture']); ?>
             </h2>
             <p>
                   <?php ?>
-                  <img src="<?= htmlspecialchars($picture) ?>" alt="" />
+                  <img class="img-fluid" src="<?= htmlspecialchars($picture) ?>" alt="" />
             </p>
             <p>
                 <?= nl2br(htmlspecialchars($post['content'])) ?>
 </p>
-                <p><em>Posté par <a href="view/frontOffice/about.php">Jean Forteroche</a> le <?= $post['creation_date_fr'] ?></em>
+                <p><em>Posté le <?= $post['creation_date_fr'] ?></em>
             </p>
           </div>
         </div>
       </div>
 
+<nav aria-label="Page navigation">
+  <ul class="pagination justify-content-center">
+    <li class="page-item"><a class="page-link" href="#">Précédent</a></li>
+    <li class="page-item"><a class="page-link" href="#">Suivant</a></li>
+  </ul>
+</nav>
 
-
-<div class="container pager">
-    <button type="button" class="btn btn-outline-primary">&larr; Chapitre précédent</button>
-    <button type="button" class="btn btn-outline-primary">Chapitre suivant &rarr;</button>
-</div>
 
 <!-- Card -->
 <div class="card">
