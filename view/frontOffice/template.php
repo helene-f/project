@@ -144,7 +144,11 @@
 						</li>
 
 						<li class="list-inline-item">
-							<a href="/view/frontOffice/connexionPage.php">Admin</a>
+							<a href="/view/frontOffice/register.php">Création d'un compte administrateur</a>
+						</li>
+
+						<li class="list-inline-item">
+							<a href="/view/frontOffice/login.php">Admin</a>
 						</li>
 					</ul>
 				</div>
