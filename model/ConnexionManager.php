@@ -7,7 +7,7 @@ class ConnexionManager extends Manager
 	public function addAdmin()
   {
     $db = $this->dbConnect();
-	$admins = $db->prepare('INSERT INTO log(admin, email_address, password) VALUES(?, ?, ?)');
+	$admins = $db->prepare('INSERT INTO configs(admin, email_address, password) VALUES(?, ?, ?)');
 	$addedAdmin = $admins->execute(array($adminName, $adminEmail, $password));
 
     return $addedAdmin;
