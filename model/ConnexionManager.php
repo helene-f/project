@@ -4,33 +4,24 @@ require_once("model/Manager.php");
 class ConnexionManager extends Manager
 {
 
-  public function connectAdmin ()
+	public function addAdmin()
   {
-
     $db = $this->dbConnect();
-  if (isset($_POST['formConnexion']))
-  {
-    $admin = htmlspecialchars($_POST['admin']);
-    $password = sha1($_POST['password']);
+	$admins = $db->prepare('INSERT INTO log(admin, email_address, password) VALUES(?, ?, ?)');
+	$addedAdmin = $admins->execute(array($adminName, $adminEmail, $password));
 
-
-    if (!empty($_POST['admin']) AND !empty($_POST['password'])
-    {
-      $adminslength = strlen($admin);
-      if ($adminlength <= 255)
-      {
-              $insertmbr = $bdd->prepare("INSERT INTO admins(admin, mail, password) VALUES(?,?,?)");
-              $insertmbr->execute(array($admin, $mail, $password));
-      }
-      else
-      {
-        $error = "votre nom d'utilisateur ne doit pas dépasser 255 caractères";
-      }
-    }
-    else
-    {
-      $error = "Les champs pseudo et mot de passe doivent être tous les deux complétés";
-    }
+    return $addedAdmin;
   }
-}
+
+
+    public function log()
+  {
+    $db = $this->dbConnect();
+    $req = $db->prepare('SELECT id, password FROM configs WHERE admin = :admin');
+	$req->bindValue(':admin', $_POST['adminName'], PDO::PARAM_STR);
+    $req->execute();//(array('admin' => $adminName));
+    $logResult = $req->fetch();
+
+    return $logResult;
+  }
 }
