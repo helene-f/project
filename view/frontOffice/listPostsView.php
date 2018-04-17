@@ -25,10 +25,10 @@ while ($data = $posts->fetch())
 
 
                 <p class="post-meta">Ecrit le <em><?= $data['creation_date_fr'] ?></em></p>
-
-                <p><?= $extract=substr($data['content'],0,180);
-                  echo $extract . "[...]";?>
-                </p>
+				<p><?= $data['content'] ?></p>
+                <!--p>$extract=substr($data['content'],0,180);
+                  //echo $extract . "[...]";
+			  </p-->
 
 
 
