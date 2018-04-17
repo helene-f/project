@@ -48,7 +48,7 @@ if (isset($_SESSION['admin'])) header("Location:/view/backOffice/listPostsEdit.p
 
 			<input type="submit" name"formConnect" class="btn btn-primary" value="Connexion" />
 			<div class="clearfix">
-				<label class="pull-left checkbox-inline"><input type="checkbox">Connexion automatique</label>
+				<label class="pull-left checkbox-inline"><input type="checkbox" name="AutomaticConnexion">Connexion automatique</label>
 			</div>
 		</form>
 
