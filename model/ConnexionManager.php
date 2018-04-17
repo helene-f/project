@@ -4,11 +4,11 @@ require_once("model/Manager.php");
 class ConnexionManager extends Manager
 {
 
-	public function addAdmin()
+	public function addAdmin($adminName, $adminEmail, $psw_hache)
   {
     $db = $this->dbConnect();
 	$admins = $db->prepare('INSERT INTO configs(admin, email_address, password) VALUES(?, ?, ?)');
-	$addedAdmin = $admins->execute(array($adminName, $adminEmail, $password));
+	$addedAdmin = $admins->execute(array($adminName, $adminEmail, $psw_hache));
 
     return $addedAdmin;
   }
