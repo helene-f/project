@@ -30,7 +30,7 @@
 		<h2>Renseignez tous les champs pour être accepté comme administrateur du site</h2>
 
 		<div class="login-form">
-		<form class="connexionPlace" action="/index.php?action=register" method="post">
+		<form class="formInscription" action="/index.php?action=register" method="post">
 			<div class="form-group">
 				<label for="pseudo">Pseudo :</label>
 				<input name="adminName" type="text" id="adminName" class="form-control" required value="<?php if(isset($adminName)) {echo $adminName;} ?>"/>
@@ -42,8 +42,13 @@
 			</div>
 
 			<div class="form-group">
-				<label for="password">Mot de Passe :</label>
+				<label for="password">Mot de passe :</label>
 				<input type="password"  name="password" id="password" class="form-control" required/>
+			</div>
+
+			<div class="form-group">
+				<label for="password2">Confirmation du mot de passe :</label>
+				<input type="password"  name="password2" id="password2" class="form-control" required/>
 			</div>
 
 			<input type="submit" name"register" class="btn btn-primary" value="Connexion" />
