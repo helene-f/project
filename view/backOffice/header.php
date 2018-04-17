@@ -36,16 +36,16 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="listPostsEdit.php">Liste des chapitres</a>
+                        <a class="nav-link" href="/admin.php?action=getForTable">Liste des chapitres</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="postsEdit.php">Ajouter un chapitre</a>
+                        <a class="nav-link" href="/view/backOffice/postsEdit.php">Ajouter un chapitre</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="comments.php">Commentaires</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link btn btn-primary" href="/admin.php?action=logout">Déconnexion</a>
+                        <a class="nav-link btn btn-primary" href="/view/backOffice/logout.php">Déconnexion</a>
                     </li>
                 </ul>
             </div>
