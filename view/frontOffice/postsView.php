@@ -1,5 +1,6 @@
 <?php $title = htmlspecialchars($post['title']);
-$picture = htmlspecialchars($post['picture']); ?>
+$picture = htmlspecialchars($post['picture']);
+ ?>
 
 <?php ob_start(); ?>
           <p><a class="btn btn-primary" href="index.php" role="button">Retour à la liste des billets</a></p>
@@ -14,7 +15,7 @@ $picture = htmlspecialchars($post['picture']); ?>
                   <img class="img-fluid" src="<?= htmlspecialchars($picture) ?>" alt="" />
             </p>
             <p>
-                <?= nl2br(htmlspecialchars($post['content'])) ?>
+				<?php echo strip_tags('<p>' . $post['content'] . '<p>' ); ?>
 </p>
                 <p><em>Posté le <?= $post['creation_date_fr'] ?></em>
             </p>
