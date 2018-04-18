@@ -62,5 +62,6 @@ if (isset($_SESSION['admin'])) header("Location:/view/backOffice/listPostsEdit.p
 	<!-- Custom scripts for this template -->
 	<script src="/public/js/clean-blog.min.js"></script>
 
+
 </body>
 </html>
