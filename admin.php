@@ -16,7 +16,7 @@ require('controller/Admin.php');
 
 		elseif ($_GET['action'] == 'postAdmin') {
 			if (isset($_GET['id']) && $_GET['id'] > 0) {
-				postAdmin();
+				postAdmin($_GET['id']);
 			}
 			else {
 				throw new Exception('Aucun identifiant de chapitre');
@@ -32,15 +32,14 @@ require('controller/Admin.php');
 			}
 		}
 
-		elseif($_GET['action'] == 'modifyPost') {
-			if (isset($_GET['id']) && $_GET['id'] > 0) {
+
+		elseif ($_GET['action'] == 'modifyPost') {
 				if (!empty($_POST['chapterTitle']) && !empty($_POST['chapterContent'])) {
-					modifyPost($_GET['id'], $_GET['chapterTitle'], $_GET['chapterContent']);
+					modifyPost($_POST['chapterTitle'], $_POST['chapterContent'], $_GET['id']);
 				}
 				else {
 					throw new Exception ('Vous n\'avez pas modifié le chapitre.');
 				}
-			}
 		}
 		elseif ($_GET['action'] == 'destroyPost') {
 			if (isset($_GET['id']) && $_GET['id'] > 0) {
@@ -48,6 +47,37 @@ require('controller/Admin.php');
 			}
 			else {
 				throw new Exception ('Impossible de supprimer ce chapitre !');
+			}
+		}
+
+		elseif ($_GET['action'] == 'addCommentAlert') {
+			if (isset($_GET['id']) && $_GET['id'] > 0) {
+				addCommentAlert($_GET['id']);
+			}
+			else {
+				throw new Exception ('Aucun identifiant de commentaire');
+			}
+		}
+
+		elseif ($_GET['action'] == 'listComments') {
+			listComments();
+		}
+
+		elseif ($_GET['action'] == 'validateComment') {
+			if (isset($_GET['id']) && $_GET['id'] > 0) {
+				validateComment($_GET['id']);
+			}
+			else {
+				throw new Exception ('Aucun identifiant de commentaire');
+			}
+		}
+
+		elseif ($_GET['action'] == 'destroyComment') {
+			if (isset($_GET['id']) && $_GET['id'] > 0) {
+				destroyComment($_GET['id']);
+			}
+			else {
+				throw new Exception ('Aucun identifiant de commentaire');
 			}
 		}
 
