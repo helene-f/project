@@ -1,3 +1,5 @@
+ <?php $title = 'Admin'; ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -42,7 +44,7 @@
                         <a class="nav-link" href="/view/backOffice/postsEdit.php">Ajouter un chapitre</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="comments.php">Commentaires</a>
+                        <a class="nav-link" href="/admin.php?action=listComments">Commentaires</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link btn btn-primary" href="/view/backOffice/logout.php">Déconnexion</a>
