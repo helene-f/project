@@ -1,6 +1,8 @@
-<?php include ('header.php') ?>
+<?php include ('header.php');
+var_dump($alertCommentsTotal);
+var_dump($req); ?>
 
-<h1>Modération des commentaires</h1>
+<h1>Modération des commentaires signalés (<?= $alertCommentsTotal ?>)</h1>
 
 <table class="table-bordered">
 	<thead>
@@ -12,10 +14,29 @@
 		</tr>
 	</thead>
 	<tbody>
+		<?php foreach ($rowAll as $row){
+			?>
 			<tr>
-				<td><?= htmlspecialchars($comment['author']) ?></td>
-				<td><?= htmlspecialchars($comment['comment_date_fr']) ?></td>
-				<td><?= htmlspecialchars($comment['comment']) ?></td>
+				<td><?php print_r($row['author']); ?></td>
+				<td><?php print_r($row['comment_date']); ?></td>
+				<td><?php print_r($row['comment']); ?></td>
 				<td>
-					<button type="submit" name="commentDeleted">Supprimer</button>
+					<a class="btn btn-success" name="commentValidated" onclick="return confirm('Voulez-vous remettre ce commentaire en ligne ?')" href="/admin.php?action=validateComment&amp;id=<?php print_r($row['id']);?>">Valider</a>
+					<a class="btn btn-danger" name="commentDeleted" onclick="return confirm('Voulez-vous supprimer définitivement ce commentaire ?')" href="/admin.php?action=destroyComment&amp;id=<?php print_r($row['id']);?>&amp;post_id=<?php print_r($row['post_id']); ?>">Supprimer</a>
 				</td>
+			</tr>
+				<?php
+				}
+				?>
+
+			</tbody>
+		</table>
+		<!-- Bootstrap core JavaScript -->
+		<script src="/public/js/jquery/jquery.min.js"></script>
+		<script src="/public/js/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+		<!-- Custom scripts for this template -->
+		<script src="/public/js/clean-blog.min.js"></script>
+
+		</body>
+		</html>
