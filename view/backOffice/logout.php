@@ -32,5 +32,13 @@
 	  <button type="button" name="stayLogin"><a href="/view/backOffice/listPostsEdit.php">Non, je reste sur l'espace d'administration.</a></button>
     </div>
 
+	<!-- Bootstrap core JavaScript -->
+	<script src="/public/js/jquery/jquery.min.js"></script>
+	<script src="/public/js/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Custom scripts for this template -->
+	<script src="/public/js/clean-blog.min.js"></script>
+
+
   </body>
 </html>
