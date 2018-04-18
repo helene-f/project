@@ -90,8 +90,10 @@ while ($comment = $comments->fetch())
                 <p>Vous venez de signaler un commentaire auprès de l'administrateur afin qu'il soit modérer. Pouvez-vous nous confirmer ce choix ?</p>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Confirmer</button>
-                <button type="button" class="btn btn-secondary">Annuler</button>
+				  <a class="btn btn-primary" href="/admin.php?action=addCommentAlert&amp;id=<?= $comment['id']?>">Confirmer</a>
+				  <a class="btn btn-secondary" href="/index.php?action=post&amp;id=<?= $post['id'] ?>">Annuler</a>
+                <!--button type="button" class="btn btn-primary" data-dismiss="modal" href="/admin.php?action=addCommentAlert">Confirmer</button>
+                <button type="button" class="btn btn-secondary" href="/view/frontOffice/postsView.php">Annuler</button-->
               </div>
             </div>
           </div>
