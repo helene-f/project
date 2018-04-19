@@ -1,33 +1,74 @@
-<?php //TODO $totalPost = SELECT MAX(id) as id_max from posts?>
+<?php include ('header.php');
+var_dump($postsTotal);
+var_dump($req);
+/*<?php
+if (isset($_SESSION['id']) AND isset($_SESSION['admin']))
+{
+	echo 'Bonjour ' . $_SESSION['admin'];
+}*/
+?>
 
-
-<div class="page-header">
-  <h1><?php //echo $totalPost; ?> chapitres</h1>
-  <a href="postsEdit.php">Ajouter</a><br />
+<div class="page-title">
+	<h1><?= $postsTotal ?> chapitres</h1>
+	<a class="btn btn-primary" href="/view/backOffice/postsEdit.php">Ajouter</a><br />
+	<!--p style="text-align: center">Il y a actuellement // $manager->count() ?> news. En voici la liste :</p-->
 </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Titre du chapitre</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><?= htmlspecialchars($data['id']) ?></td>
-      <td><?= htmlspecialchars($data['title']) ?></td>
-      <td>
-        <a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Voir</a>
-        <a href="#">Modifier</a><br />
-        <a onclick="return confirm('Voulez-vous confirmer la suppression de ce chapitre ?'" href="#">Supprimer</a><br />
-        <p> brouillon ou publié</p>
-      </td>
-    </tr>
-  </tbody>
-</table>
 
+<div class="container">
+	<table class="table table-bordered">
+			<tr>
+				<th>Numéro de chapitre</th>
+				<th>Titre</th>
+				<th>Date d'ajout</th>
+				<th>Actions</th>
+			</tr>
+		<?php foreach ($rowAll as $row){
+			?>
+			<tr>
+				<td><?php print_r($row['id']); ?></td>
+				<td><?php print_r($row['title']); ?></td>
+				<td><?php print_r($row['creation_date']); ?></td>
+				<td>
+					<a class="btn btn-primary" href="/index.php?action=post&amp;id=<?php print_r($row['id']); ?>">Voir</a>
+					<a class="btn btn-success" href="/admin.php?action=postAdmin&amp;id=<?php print_r($row['id']); ?>">Modifier</a>
+					<a class="btn btn-danger" onclick="return confirm('Voulez-vous confirmer la suppression de ce chapitre ?')" href="/admin.php?action=destroyPost&amp;id=<?php print_r($row['id']); ?>">Supprimer</a>
+					<p> brouillon ou publié</p>
+				</td>
+			</tr>
+		<?php }
+		?>
+	</table>
+</div>
+
+<!-- Pagination -->
+<nav aria-label="Page navigation example">
+	<ul class="pagination justify-content-center">
+		<li class="page-item">
+			<a class="page-link" href="#" aria-label="Previous">
+				<span aria-hidden="true">&laquo;</span>
+				<span class="sr-only">Précédent</span>
+			</a>
+		</li>
+		<li class="page-item"><a class="page-link" href="#">1</a></li>
+		<li class="page-item"><a class="page-link" href="#">2</a></li>
+		<li class="page-item"><a class="page-link" href="#">3</a></li>
+		<li class="page-item">
+			<a class="page-link" href="#" aria-label="Next">
+				<span aria-hidden="true">&raquo;</span>
+				<span class="sr-only">Suivant</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+<!-- Pagination -->
+
+<!-- Bootstrap core JavaScript -->
+<script src="/public/js/jquery/jquery.min.js"></script>
+<script src="/public/js/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom scripts for this template -->
+<script src="/public/js/clean-blog.min.js"></script>
 
 </body>
 </html>
