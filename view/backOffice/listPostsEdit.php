@@ -1,24 +1,22 @@
 <?php include ('header.php');
-var_dump($postsTotal);
-var_dump($req);
-/*<?php
-if (isset($_SESSION['id']) AND isset($_SESSION['admin']))
+
+/*if (isset($_SESSION['id']) AND isset($_SESSION['admin']))
 {
-	echo 'Bonjour ' . $_SESSION['admin'];
-}*/
+	echo 'Bonjour ' . $_SESSION['admin'];*/
+
 ?>
 
 <div class="page-title">
-	<h1><?= $postsTotal ?> chapitres</h1>
+	<h1>Tableau de bord</h1>
+	<p style="text-align: center">Il y a actuellement <?= $postsTotal ?> chapitres. En voici la liste :</p>
 	<a class="btn btn-primary" href="/view/backOffice/postsEdit.php">Ajouter</a><br />
-	<!--p style="text-align: center">Il y a actuellement // $manager->count() ?> news. En voici la liste :</p-->
 </div>
 
 
 <div class="container">
 	<table class="table table-bordered">
 			<tr>
-				<th>Numéro de chapitre</th>
+				<th>ID</th>
 				<th>Titre</th>
 				<th>Date d'ajout</th>
 				<th>Actions</th>
@@ -33,7 +31,6 @@ if (isset($_SESSION['id']) AND isset($_SESSION['admin']))
 					<a class="btn btn-primary" href="/index.php?action=post&amp;id=<?php print_r($row['id']); ?>">Voir</a>
 					<a class="btn btn-success" href="/admin.php?action=postAdmin&amp;id=<?php print_r($row['id']); ?>">Modifier</a>
 					<a class="btn btn-danger" onclick="return confirm('Voulez-vous confirmer la suppression de ce chapitre ?')" href="/admin.php?action=destroyPost&amp;id=<?php print_r($row['id']); ?>">Supprimer</a>
-					<p> brouillon ou publié</p>
 				</td>
 			</tr>
 		<?php }
