@@ -1,4 +1,7 @@
 <?php
+
+//namespace Openclassrooms\Blog\Model;
+
 class Manager
 {
   protected function dbConnect() {
