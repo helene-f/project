@@ -3,8 +3,10 @@ $(document).ready(function () {
         $("#demo").toggle();
     });
 
-  /*  $(".signal").click(function () {
-        alert("etes-vous sur de vouloir signaler ce commentaire auprès de l'administrateur du site ?");
-    });*/
+	$(".close").click(function(){
+        $("#myAlert").alert("close");
+    });
+
+
 
 });
