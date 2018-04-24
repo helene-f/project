@@ -1,10 +1,8 @@
 <?php
 // initialisation des variables titre
-$title = 'Billet simple pour l\'Alaska'; ?>
+$title = 'Billet simple pour l\'Alaska';
+ob_start();
 
-<?php ob_start(); ?>
-
-<?php
 while ($data = $posts->fetch())
 {
 	?>
@@ -21,19 +19,14 @@ while ($data = $posts->fetch())
 
 
 				<p class="post-meta">Ecrit le <em><?= $data['creation_date_fr'] ?></em></p>
-				<p><?= $data['content'] ?></p>
-				<!--p>$extract=substr($data['content'],0,180);
-				//echo $extract . "[...]";
-			</p-->
+				<p> <?= $extract= substr($data['content'],0, 180) . "[...]"; ?></p>
 
-
-
-			<p><em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Lire le chapitre</a></em></p>
+				<p><em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Lire le chapitre</a></em></p>
+			</div>
 		</div>
+
+
 	</div>
-
-
-</div>
 
 
 </div>
@@ -65,16 +58,14 @@ $posts->closeCursor(); ?>
 
 
 <div class="container newsletter card card-image">
-
-
-
 	<!-- Content -->
 	<div class="inscription">
-		<h5><i class="fa fa-envelope-o"></i>Inscrivez-vous à la newsletter</h5>
+		<h5><i class="fa fa-envelope-o"></i> Inscrivez-vous à la newsletter</h5>
 		<h3 class="card-title"><strong>Restons en contact</strong></h3>
 		<p>Soyez au courant des dernières actualités ou du prochain chapitre.</p>
 
 		<form class="addContact" action="/index.php?action=addContact" method="post">
+
 			<div class="form-row">
 				<div class="col-md-4 mb-3">
 					<div class="input-group">

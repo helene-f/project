@@ -1,7 +1,7 @@
 <?php
 // we want to redirect the administrator to the listPostsEdit page if he is already logged in
 session_start();
-if (isset($_SESSION['admin'])) header("Location:/view/backOffice/listPostsEdit.php");
+if (isset($_SESSION['admin'])) header("Location:/view/backOffice/dashboard.php");
 ?>
 
 <!DOCTYPE html>
@@ -25,33 +25,40 @@ if (isset($_SESSION['admin'])) header("Location:/view/backOffice/listPostsEdit.p
 
 	<!-- Custom styles for this template -->
 
-	<link href="/public/css/landing-style.css" rel="stylesheet">
+	<link href="/public/css/login-style.css" rel="stylesheet">
 	<link href="/public/css/clean-blog.min.css" rel="stylesheet">
 
 </head>
 <body>
+	<div class="container">
+		<div class="card card-container">
+			<h2 class="card-header">Connexion à votre espace</h2>
+			<div class="card-body">
+				<h5 class="card-title">Identifiez-vous</h5>
+				<div class="card-text login-form">
+					<form class="connexionPlace" action="/index.php?action=login" method="post">
+						<div class="form-group">
+							<label for="pseudo">Pseudo :</label>
+							<input name="adminName" type="text" id="adminName" class="form-control" required value="<?php if(isset($adminname)) {echo $adminname;} ?>"/>
+						</div>
+
+						<div class="form-group">
+							<label for="password">Mot de Passe :</label>
+							<input type="password"  name="password" id="password" class="form-control" required/>
+						</div>
+						<div class="form-group">
+							<div class="form-check form-check-inline">
+								<input class="form-check-input" type="checkbox" id="inlineCheckbox" name="AutomaticConnexion" value="Connexion automatique">
+								<label class="form-check-label" for="inlineCheckbox">Connexion Automatique</label>
+							</div>
+						</div>
 
 
-		<h1>Connexion à votre espace</h1>
-		<h2>Identifiez-vous</h2>
-		<div class="login-form">
-		<form class="connexionPlace" action="/index.php?action=login" method="post">
-			<div class="form-group">
-				<label for="pseudo">Pseudo :</label>
-				<input name="adminName" type="text" id="adminName" class="form-control" required value="<?php if(isset($adminname)) {echo $adminname;} ?>"/>
+						<input type="submit" name"formConnect" class="btn btn-primary" value="Connexion" />
+					</form>
+				</div>
 			</div>
-
-			<div class="form-group">
-				<label for="password">Mot de Passe :</label>
-				<input type="password"  name="password" id="password" class="form-control" required/>
-			</div>
-
-			<input type="submit" name"formConnect" class="btn btn-primary" value="Connexion" />
-			<div class="clearfix">
-				<label class="pull-left checkbox-inline"><input type="checkbox" name="AutomaticConnexion">Connexion automatique</label>
-			</div>
-		</form>
-
+		</div>
 	</div>
 
 

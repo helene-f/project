@@ -19,49 +19,53 @@
 
 	<!-- Custom styles for this template -->
 
-	<link href="/public/css/landing-style.css" rel="stylesheet">
+	<link href="/public/css/login-style.css" rel="stylesheet">
 	<link href="/public/css/clean-blog.min.css" rel="stylesheet">
 
 </head>
 <body>
+	<div class="container">
+		<div class="card card-container">
+			<h2 class="card-header">Creez votre compte Administateur</h2>
+			<div class="card-body">
+				<h5 class="card-title">Renseignez tous les champs pour être accepté comme administrateur du site</h5>
+				<div class="card-text login-form">
+					<form class="formInscription" action="/index.php?action=register" method="post">
+						<div class="form-group">
+							<label for="pseudo">Pseudo :</label>
+							<input name="adminName" type="text" id="adminName" class="form-control" required value="<?php if(isset($adminName)) {echo $adminName;} ?>"/>
+						</div>
 
+						<div class="form-group">
+							<label for="email">Email :</label>
+							<input type="email"  name="email" id="email" class="form-control" required/>
+						</div>
 
-		<h1>Creez votre compte Administateur</h1>
-		<h2>Renseignez tous les champs pour être accepté comme administrateur du site</h2>
+						<div class="form-group">
+							<label for="password">Mot de passe :</label>
+							<input type="password"  name="password" id="password" class="form-control" required/>
+						</div>
 
-		<div class="login-form">
-		<form class="formInscription" action="/index.php?action=register" method="post">
-			<div class="form-group">
-				<label for="pseudo">Pseudo :</label>
-				<input name="adminName" type="text" id="adminName" class="form-control" required value="<?php if(isset($adminName)) {echo $adminName;} ?>"/>
+						<div class="form-group">
+							<label for="password2">Confirmation du mot de passe :</label>
+							<input type="password"  name="password2" id="password2" class="form-control" required/>
+						</div>
+
+						<input type="submit" name"register" class="btn btn-primary" value="Connexion" />
+					</form>
+				</div>
 			</div>
-
-			<div class="form-group">
-				<label for="email">Email :</label>
-				<input type="email"  name="email" id="email" class="form-control" required/>
-			</div>
-
-			<div class="form-group">
-				<label for="password">Mot de passe :</label>
-				<input type="password"  name="password" id="password" class="form-control" required/>
-			</div>
-
-			<div class="form-group">
-				<label for="password2">Confirmation du mot de passe :</label>
-				<input type="password"  name="password2" id="password2" class="form-control" required/>
-			</div>
-
-			<input type="submit" name"register" class="btn btn-primary" value="Connexion" />
-		</form>
+		</div>
 	</div>
 
 
-	<!-- Bootstrap core JavaScript -->
-	<script src="/public/js/jquery/jquery.min.js"></script>
-	<script src="/public/js/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-	<!-- Custom scripts for this template -->
-	<script src="/public/js/clean-blog.min.js"></script>
+				<!-- Bootstrap core JavaScript -->
+				<script src="/public/js/jquery/jquery.min.js"></script>
+				<script src="/public/js/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-</body>
-</html>
+				<!-- Custom scripts for this template -->
+				<script src="/public/js/clean-blog.min.js"></script>
+
+			</body>
+			</html>

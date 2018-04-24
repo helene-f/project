@@ -44,7 +44,7 @@
 							<a class="dropdown-item" href="#">Chapitre 1</a>
 							<a class="dropdown-item" href="#">Chapitre 2 </a>
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#">Separated link</a>
+							<a class="dropdown-item" href="index.php?action=post&amp;id=<?= $data['id'] ?>"><?= htmlspecialchars($data['title'])?></a>
 						</div>
 					</li>
 					<li class="nav-item">
@@ -141,10 +141,6 @@
 						<h6>Liens utiles</h6>
 						<li class="list-inline-item">
 							<a href="/view/frontOffice/legal-notices.php">Mentions légales</a>
-						</li>
-
-						<li class="list-inline-item">
-							<a href="/view/frontOffice/register.php">Création d'un compte administrateur</a>
 						</li>
 
 						<li class="list-inline-item">

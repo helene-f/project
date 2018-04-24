@@ -10,15 +10,12 @@ $picture = htmlspecialchars($post['picture']);
 			<h2>
 				<?= htmlspecialchars($title) ?>
 			</h2>
+
 			<p>
-				<?php ?>
-				<img class="img-fluid" src="<?= htmlspecialchars($picture) ?>" alt="" />
+				<?php $displayPost = mb_convert_encoding($post['content'], "UTF-8");
+    			echo ($displayPost); ?>
 			</p>
-			<p>
-				<?php echo strip_tags('<p>' . $post['content'] . '<p>' ); ?>
-				</p>
-				<p><em>Posté le <?= $post['creation_date_fr'] ?></em>
-				</p>
+			<p><em>Posté le <?= $post['creation_date_fr'] ?></em></p>
 			</div>
 		</div>
 	</div>
