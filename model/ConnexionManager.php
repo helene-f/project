@@ -1,4 +1,7 @@
 <?php
+
+namespace Helene\Project\Model;
+
 require_once("model/Manager.php");
 
 class ConnexionManager extends Manager

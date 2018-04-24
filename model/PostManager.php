@@ -1,6 +1,6 @@
 <?php
 
-//namespace Openclassrooms\Blog\Model;
+namespace Helene\Project\Model;
 
 require_once("model/Manager.php");
 
@@ -20,15 +20,6 @@ class PostManager extends Manager
 		return $affectedLines;
 	}
 
-
-	/*public function count()
-	{
-	$db = $this->dbConnect();
-	$req = $db->query('SELECT COUNT(*) FROM posts');
-	$count = $req->fetchColumn();
-
-	return $count;
-	}*/
 
 	// READ
 	public function getPosts()
@@ -61,7 +52,7 @@ class PostManager extends Manager
 	}
 
 	// UPDATE
-	public function updatePost($newTitle, $newContent, $postId)
+	function updatePost($newTitle, $newContent, $postId)
 	{
 		$db = $this->dbConnect();
 		$req = $db->prepare('UPDATE posts SET title = ?, content = ? WHERE id = ?');
@@ -74,7 +65,7 @@ class PostManager extends Manager
 	public function deletePost($postId)
 	{
 		$db = $this->dbConnect();
-		$req = $db->prepare("DELETE p, c FROM posts p INNER JOIN comments c ON c.post_id = p.id WHERE p.id= ?");
+		$req = $db->prepare("DELETE p, c FROM posts p LEFT JOIN comments c ON c.post_id = p.id WHERE p.id= ?");
 		$req->execute(array($postId));
 
 		return $req;

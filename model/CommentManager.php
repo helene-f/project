@@ -1,6 +1,6 @@
 <?php
 
-//namespace Openclassrooms\Blog\Model;
+namespace Helene\Project\Model;
 
 require_once("model/Manager.php");
 
@@ -39,7 +39,7 @@ class CommentManager extends Manager
 		return $comment;
 	}
 
-	// ALERT 
+	// ALERT
 	public function postAlert($commentId)
 	{
 			$db = $this->dbConnect();

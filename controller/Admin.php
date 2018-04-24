@@ -1,5 +1,5 @@
 <?php
-//use \OpenClassrooms\Blog\Model\ConnexionManager;
+use \Helene\Project\Model\ConnexionManager;
 require_once('model/ConnexionManager.php');
 
 function register($adminName, $adminEmail, $psw_hache)

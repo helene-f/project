@@ -1,5 +1,7 @@
 <?php
+use \Helene\Project\Model\PostManager;
 require_once('model/PostManager.php');
+use \Helene\Project\Model\CommentManager;
 require_once('model/CommentManager.php');
 
 // CREATE
@@ -115,7 +117,7 @@ function validateComment($commentId)
 		throw new Exception ('Impossible de valider le commentaire !');
 	}
 	else {
-		header('Location: admin.php?action=listComments');
+		header('Location: index.php');
 	}
 }
 
@@ -130,6 +132,6 @@ function destroyComment($commentId)
 		throw new Exception ('Impossible de supprimer le commentaire signalé par un lecteur visiteur !');
 	}
 	else {
-		header('Location: admin.php?action=listComment');
+		header('Location: admin.php?action=listComments');
 	}
 }
