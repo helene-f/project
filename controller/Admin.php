@@ -22,7 +22,7 @@ function register($adminName, $adminEmail, $psw_hache)
 		}
 	}
 	else {
-		echo "les mots de passe sont différents. Réessayez !";
+		throw new Exception ("les mots de passe sont différents. Réessayez !");
 	}
 }
 
@@ -37,7 +37,7 @@ function login()
 
 	if (!$logResult)
 	{
-		echo ('Mauvais identifiant ou mot de passe. Réessayez !');
+		throw new Exception ('Mauvais identifiant ou mot de passe. Réessayez !');
 	}
 	else {
 		if ($isPasswordCorrect) {
@@ -45,12 +45,11 @@ function login()
 			$_SESSION['id'] = $logResult['id'];
 			$_SESSION['admin'] = $_POST['adminName'];
 
-			//echo 'Bonjour '.htmlspecialchars($_SESSION['admin']).', vous êtes connecté';
-			//header("Location:/view/backOffice/listPostsEdit.php");
-			header("Location:/admin.php?action=getForTable");
+			header("Location:/view/backOffice/dashboard.php");
+
 		}
 		else {
-			echo ('Mauvais identifiant ou mot de passe !');
+			throw new Exception ('Mauvais identifiant ou mot de passe !');
 		}
 	}
 }
