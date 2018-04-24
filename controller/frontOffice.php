@@ -47,6 +47,7 @@ function addComment($postId, $author, $comment)
 
 function addContact($contactName, $contactEmail)
 {
+
 	$contactManager = new ContactManager();
 
 	$testLines = $contactManager->postContact($contactName, $contactEmail);
@@ -55,12 +56,13 @@ function addContact($contactName, $contactEmail)
 		throw new Exception ('Impossible d\'ajouter vos coordonnées !');
 	}
 	else {
+		header( "refresh:5; url=index.php" );
 		echo ("vous êtes inscrit à la newsletter");
 	}
 }
 
 
-function searchNav($q)
+/*function searchNav($q)
 {
 	// on rend clean la requete de l'utilisateur
 	$q = preg_replace("#[^a-zA-Z ?0-9]#i", "", $_POST['q']);
@@ -78,4 +80,4 @@ function searchNav($q)
 	else {
 		echo "<hr/> O résultat trouvé pour <strong>$q</strong><hr/>";
 	}
-}
+}*/

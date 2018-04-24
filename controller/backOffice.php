@@ -12,7 +12,7 @@ function addPost($title, $content)
 		throw new Exception ('Impossible d\'ajouter le chapitre !');
 	}
 	else {
-		echo "ca fonctionne : un chapitre en plus";
+		header('Location: view/backOffice/postsEdit.php?message=Chapitre créé');
 	}
 }
 
@@ -28,7 +28,7 @@ function listPostsAdmin()
 
 function getForTable()
 {
-	$postManager = new PostManager();// Création d'un objet
+	$postManager = new PostManager();
 	$req = $postManager->getPostsList();
 	$postsTotal = $req->rowcount();
 	$rowAll = $req->fetchAll();
@@ -57,7 +57,7 @@ function modifyPost($newTitle, $newContent, $postId)
 		throw new Exception('Impossible de modifier le chapitre !');
 	}
 	else {
-		header('Location: index.php?action=post&id=' . $postId);
+		header('Location: view/backOffice/postsEdit.php?message=Chapitre modifié');
 	}
 }
 
@@ -68,7 +68,7 @@ function destroyPost($postId)
 
 	$req = $postManager->deletePost($postId);
 
-	if ($req=== false) {
+	if ($req === false) {
 		throw new Exception ('Impossible de supprimer le chapitre !');
 	}
 	else {
@@ -87,7 +87,8 @@ function addCommentAlert($commentId)
 		throw new Exception ('Impossible de signaler le commentaire !');
 	}
 	else {
-		echo "ca fonctionne : un commentaire signalé";
+		header( "refresh:5; url=index.php" );
+		echo ("Le commentaire que vous avez signalé a bien été envoyé à l'administrateur de ce site");
 	}
 }
 
@@ -111,10 +112,10 @@ function validateComment($commentId)
 	$affectedLines = $commentManager->stopAlert($commentId);
 
 	if ($affectedLines === false) {
-		throw new Exception ('Impossible de remettre en ligne le commentaire !');
+		throw new Exception ('Impossible de valider le commentaire !');
 	}
 	else {
-		echo "ca fonctionne : un commentaire remis en ligne";
+		header('Location: admin.php?action=listComments');
 	}
 }
 
@@ -129,6 +130,6 @@ function destroyComment($commentId)
 		throw new Exception ('Impossible de supprimer le commentaire signalé par un lecteur visiteur !');
 	}
 	else {
-		echo "ca fonctionne";
+		header('Location: admin.php?action=listComment');
 	}
 }
