@@ -7,10 +7,10 @@ require_once("model/Manager.php");
 class PostManager extends Manager
 {
 	/* -----
-		CRUD
-	   -----
-	*/
+	CRUD
+	----- */
 
+	// CREATE
 	public function createPost($title, $content)
 	{
 		$db = $this->dbConnect();
@@ -20,16 +20,17 @@ class PostManager extends Manager
 		return $affectedLines;
 	}
 
+
 	/*public function count()
-  {
-	  	$db = $this->dbConnect();
-		$req = $db->query('SELECT COUNT(*) FROM posts');
-		$count = $req->fetchColumn();
+	{
+	$db = $this->dbConnect();
+	$req = $db->query('SELECT COUNT(*) FROM posts');
+	$count = $req->fetchColumn();
 
-		return $count;
-  }*/
+	return $count;
+	}*/
 
-
+	// READ
 	public function getPosts()
 	{
 		$db = $this->dbConnect();
@@ -37,6 +38,7 @@ class PostManager extends Manager
 
 		return $req;
 	}
+
 
 	public function getPostsList()
 	{
@@ -46,6 +48,7 @@ class PostManager extends Manager
 
 		return $req;
 	}
+
 
 	public function getPost($postId)
 	{
@@ -57,6 +60,7 @@ class PostManager extends Manager
 		return $post;
 	}
 
+	// UPDATE
 	public function updatePost($newTitle, $newContent, $postId)
 	{
 		$db = $this->dbConnect();
@@ -66,6 +70,7 @@ class PostManager extends Manager
 		return $affectedLines;
 	}
 
+	// DELETE
 	public function deletePost($postId)
 	{
 		$db = $this->dbConnect();
@@ -73,17 +78,15 @@ class PostManager extends Manager
 		$req->execute(array($postId));
 
 		return $req;
-
-
 	}
 
-		/*
-		public function searchWord($q)
-		{
-		$db = $this->dbConnect();
-		$req = $db->prepare('SELECT id, title, content FROM posts WHERE title LIKE ? OR content LIKE ?');
-		$req->execute(array('%'.$q.'%', '%'.$q.'%'));
+	/*
+	public function searchWord($q)
+	{
+	$db = $this->dbConnect();
+	$req = $db->prepare('SELECT id, title, content FROM posts WHERE title LIKE ? OR content LIKE ?');
+	$req->execute(array('%'.$q.'%', '%'.$q.'%'));
 
-		return $req;
-		}*/
-		}
+	return $req;
+	}*/
+}

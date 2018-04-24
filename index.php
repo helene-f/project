@@ -1,18 +1,19 @@
 <?php
 require('controller/frontOffice.php');
-//require('controller/backOffice.php');
 require('controller/Admin.php');
+
+
+/* ----------------
+   FRONT OFFICE
+-------------------  */
 
 try {
 	if (isset($_GET['action'])) {
 
-		/* ----------------
-		FRONT OFFICE
-		-------------------  */
-
 		if ($_GET['action'] == 'listPosts') {
 			listPosts();
 		}
+
 
 		elseif ($_GET['action'] == 'post') {
 			if (isset($_GET['id']) && $_GET['id'] > 0) {
@@ -23,6 +24,7 @@ try {
 				throw new Exception ('Aucun identifiant de billet envoyé');
 			}
 		}
+
 
 		elseif ($_GET['action'] == 'addComment') {
 			if (isset($_GET['id']) && $_GET['id'] > 0) {
@@ -38,6 +40,7 @@ try {
 			}
 		}
 
+
 		elseif ($_GET['action'] == 'addContact') {
 			//if (isset($_GET['contactId']) && $_GET['contactId'] > 0) {
 			if (!empty($_POST['contactName']) && !empty($_POST['contactEmail'])) {
@@ -48,6 +51,7 @@ try {
 			}
 		}
 
+
 		elseif ($_GET['action'] == 'register') {
 			if (!empty($_POST['adminName']) AND !empty($_POST['email']) AND !empty($_POST['password']) AND !empty($_POST['password2'])) {
 				register($_POST['adminName'], $_POST['email'], $_POST['password']);
@@ -56,6 +60,8 @@ try {
 				throw new Exception ('tous les champs ne sont pas remplis !');
 			}
 		}
+
+
 		elseif ($_GET['action'] == 'login') {
 			if (!empty($_POST['adminName']) && !empty($_POST['password'])) {
 				login();
@@ -73,52 +79,22 @@ try {
 			}
 		}
 
-		elseif ($_GET['action'] == 'logout') {
-				logout();
-			}
 
-		/* ----------------
-		BACK OFFICE
-		-------------------  */
+		elseif ($_GET['action'] == 'logout') {
+			logout();
+		}
+
 
 		/*
-		elseif ($_GET['action'] == 'listPostsAdmin') {
-		listPostsAdmin();
+		elseif ($_GET['action'] == 'searchNav') {
+		if(isset($_POST['q']) && !empty($_POST['q'])) {
+		searchNav($_POST['q']);
 	}
-
-	elseif ($_GET['action'] == 'postAdmin') {
-	if (isset($_GET['id']) && $_GET['id'] > 0) {
-	postAdmin();
-}
-else {
-throw new Exception('Aucun identifiant de chapitre');
+	else {
+	// Erreur ! On arrête tout, on envoie un exception, donc on saute directement au catch
+	throw new Exception ('Aucune recherche n\'a été effectuée');
 }
 }
-
-elseif ($_GET['action'] == 'addPost') {
-if (!empty($_POST['chapterTitle']) && !empty($_POST['chapterContent'])) {
-addPost($_POST['chapterTitle'], $_POST['chapterContent']);
-}
-else {
-throw new Exception ('tous les champs ne sont pas remplis !');
-}
-}
-
-
-
-
-
-/*
-elseif ($_GET['action'] == 'searchNav') {
-if(isset($_POST['q']) && !empty($_POST['q'])) {
-searchNav($_POST['q']);
-}
-else {
-// Erreur ! On arrête tout, on envoie un exception, donc on saute directement au catch
-throw new Exception ('Aucune recherche n\'a été effectuée');
-}
-}
-
 */
 
 

@@ -26,52 +26,56 @@ class CommentManager extends Manager
 		$comments->execute(array($postId));
 
 		return $comments;
-		}
+	}
 
-		public function getComment($commentId)
-		{
+
+	public function getComment($commentId)
+	{
 		$db = $this->dbConnect();
 		$req = $db->prepare("SELECT id, post_id, author, comment, DATE_FORMAT(comment_date, '%d/%m/%Y à %Hh%imin%ss') AS comment_date_fr FROM comments WHERE id = ?");
 		$req->execute(array($commentId));
 		$comment = $req->fetch();
 
 		return $comment;
-		}
+	}
 
-		public function postAlert($commentId)
-		{
+	// ALERT 
+	public function postAlert($commentId)
+	{
 			$db = $this->dbConnect();
 			$alertedComments = $db->prepare("UPDATE comments SET comment_signal = NOW() WHERE id = ?");
 			$affectedLines = $alertedComments->execute(array($commentId));
 
 			return $affectedLines;
-		}
+	}
 
-		public function stopAlert($commentId)
-		{
+
+	public function stopAlert($commentId)
+	{
 			$db = $this->dbConnect();
 			$validatedComment = $db->prepare("UPDATE comments SET comment_signal = 0 WHERE id = ?");
 			$affectedLines = $validatedComment->execute(array($commentId));
 
 			return $affectedLines;
-		}
+	}
 
-		public function getCommentsList()
-		{
+
+	public function getCommentsList()
+	{
 		$db = $this->dbConnect();
 		$req = $db->prepare("SELECT * FROM comments WHERE comment_signal != 0 ORDER BY comment_signal DESC");
 		$req->execute();
 
 		return $req;
-		}
+	}
 
-		// DELETE
-		function deleteComment($commentId)
-		{
+	// DELETE
+	function deleteComment($commentId)
+	{
 		$db = $this->dbConnect();
 		$req = $db->prepare('DELETE FROM comments WHERE id = ?');
 		$req->execute(array($commentId));
 
 		return $req;
-		}
+	}
 }

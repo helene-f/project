@@ -16,6 +16,7 @@ function addPost($title, $content)
 	}
 }
 
+
 function listPostsAdmin()
 {
 	$postManager = new PostManager();// Création d'un objet
@@ -23,6 +24,7 @@ function listPostsAdmin()
 
 	require('view/backOffice/listPostsEdit.php');
 }
+
 
 function getForTable()
 {
@@ -74,6 +76,7 @@ function destroyPost($postId)
 	}
 }
 
+
 function addCommentAlert($commentId)
 {
 	$commentManager = new CommentManager();
@@ -86,18 +89,20 @@ function addCommentAlert($commentId)
 	else {
 		echo "ca fonctionne : un commentaire signalé";
 	}
-   }
+}
 
-   function listComments()
-   {
-   	$commentManager = new CommentManager();
 
-   	$req = $commentManager->getCommentsList();
+function listComments()
+{
+	$commentManager = new CommentManager();
+
+	$req = $commentManager->getCommentsList();
 	$alertCommentsTotal = $req->rowcount();
 	$rowAll = $req->fetchAll();
 
 	require('view/backOffice/comments.php');
 }
+
 
 function validateComment($commentId)
 {
@@ -111,7 +116,8 @@ function validateComment($commentId)
 	else {
 		echo "ca fonctionne : un commentaire remis en ligne";
 	}
-   }
+}
+
 
 function destroyComment($commentId)
 {

@@ -163,7 +163,6 @@
 		</div>
 	</footer>
 
-
 	<!-- Bootstrap core JavaScript -->
 	<script src="/public/js/jquery/jquery.min.js"></script>
 	<script src="/public/js/bootstrap/js/bootstrap.bundle.min.js"></script>

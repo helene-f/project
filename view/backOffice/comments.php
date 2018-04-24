@@ -1,6 +1,4 @@
-<?php include ('header.php');
-var_dump($alertCommentsTotal);
-var_dump($req); ?>
+<?php include ('header.php'); ?>
 
 <h1>Modération des commentaires signalés (<?= $alertCommentsTotal ?>)</h1>
 
@@ -25,12 +23,14 @@ var_dump($req); ?>
 					<a class="btn btn-danger" name="commentDeleted" onclick="return confirm('Voulez-vous supprimer définitivement ce commentaire ?')" href="/admin.php?action=destroyComment&amp;id=<?php print_r($row['id']);?>&amp;post_id=<?php print_r($row['post_id']); ?>">Supprimer</a>
 				</td>
 			</tr>
+			
 				<?php
 				}
 				?>
 
 			</tbody>
 		</table>
+
 		<!-- Bootstrap core JavaScript -->
 		<script src="/public/js/jquery/jquery.min.js"></script>
 		<script src="/public/js/bootstrap/js/bootstrap.bundle.min.js"></script>
