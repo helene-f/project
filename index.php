@@ -42,7 +42,6 @@ try {
 
 
 		elseif ($_GET['action'] == 'addContact') {
-			//if (isset($_GET['contactId']) && $_GET['contactId'] > 0) {
 			if (!empty($_POST['contactName']) && !empty($_POST['contactEmail'])) {
 				addContact($_POST['contactName'], $_POST['contactEmail']);
 			}
@@ -71,7 +70,7 @@ try {
 					setcookie('psw_hache', ($_POST['password']), time()+3600);
 				}
 				else {
-					echo 'cela ne marche pas, pas de possibilité de créer des cookies';
+					throw new Exception ('Cela ne marche pas, pas de possibilité de créer des cookies');
 				}
 			}
 			else {
