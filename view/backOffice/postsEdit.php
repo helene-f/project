@@ -13,6 +13,20 @@ if(isset($_GET['id']) && $_GET['id'] > 0) {
 <h2>Editer un chapitre</h2>
 
 <div class="container">
+
+	<?php if(isset($_GET['message']))
+	{
+		$message = $_GET['message']; ?>
+		<div class="alert alert-success alert-dismissible fade show" id="alert" role="alert">
+			<?php echo $message; ?>
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+		<?php
+	}
+	?>
+
 	<form class="addPost" action="<?php echo $action; ?>" method="post">
 		<!--div class="form-group">
 		<label for="picture">Téléchargez votre image : </label>
@@ -49,7 +63,19 @@ if(isset($_GET['id']) && $_GET['id'] > 0) {
 		'//fonts.googleapis.com/css?family=Lato:300,300i,400,400i'],
 		cleanup: true
 	});
-	</script>
+</script>
+
+	<!-- Bootstrap core JavaScript -->
+	<script src="/public/js/jquery/jquery.min.js"></script>
+	<script src="/public/js/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+	<!-- Custom scripts for this template -->
+	<script src="/public/js/clean-blog.min.js"></script>
+	<script src="/public/js/search-button.js"></script>
+
+
+</body>
+</html>
 
 </body>
 </html>

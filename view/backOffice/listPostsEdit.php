@@ -1,26 +1,20 @@
-<?php include ('header.php');
-
-/*if (isset($_SESSION['id']) AND isset($_SESSION['admin']))
-{
-	echo 'Bonjour ' . $_SESSION['admin'];*/
-
-?>
-
-<div class="page-title">
-	<h1>Tableau de bord</h1>
-	<p style="text-align: center">Il y a actuellement <?= $postsTotal ?> chapitres. En voici la liste :</p>
-	<a class="btn btn-primary" href="/view/backOffice/postsEdit.php">Ajouter</a><br />
-</div>
-
+<?php include ('header.php'); ?>
 
 <div class="container">
+
+	<div class="page-title">
+		<h1>Tableau de bord</h1>
+		<p><a class="btn btn-primary" href="/view/backOffice/postsEdit.php">Ajouter un chapitre</a></p>
+		<p style="text-align: center">Il y a actuellement <?= $postsTotal ?> chapitres. En voici la liste :</p>
+	</div>
+
 	<table class="table table-bordered">
-			<tr>
-				<th>ID</th>
-				<th>Titre</th>
-				<th>Date d'ajout</th>
-				<th>Actions</th>
-			</tr>
+		<tr>
+			<th>ID</th>
+			<th>Titre</th>
+			<th>Date d'ajout</th>
+			<th>Actions</th>
+		</tr>
 		<?php foreach ($rowAll as $row){
 			?>
 			<tr>
@@ -66,6 +60,7 @@
 
 <!-- Custom scripts for this template -->
 <script src="/public/js/clean-blog.min.js"></script>
+<script src="/public/js/search-button.js"></script>
 
 </body>
 </html>
