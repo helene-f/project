@@ -89,6 +89,15 @@ try {
 			}
 		}
 
+		elseif ($_GET['action'] == 'register') {
+			if (!empty($_POST['adminName']) AND !empty($_POST['email']) AND !empty($_POST['password']) AND !empty($_POST['password2'])) {
+				register($_POST['adminName'], $_POST['email'], $_POST['password']);
+			}
+			else {
+				throw new Exception ('tous les champs ne sont pas remplis !');
+			}
+		}
+
 	}
 	else {
 		getForTable();

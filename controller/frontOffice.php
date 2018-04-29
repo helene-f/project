@@ -1,13 +1,9 @@
 <?php
 
-use \Helene\Project\Model\PostManager;
 require_once('model/PostManager.php');
-
-use \Helene\Project\Model\CommentManager;
 require_once('model/CommentManager.php');
-
-use \Helene\Project\Model\ContactManager;
 require_once('model/ContactManager.php');
+
 
 function listPosts()
 {

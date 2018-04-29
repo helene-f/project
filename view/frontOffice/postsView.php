@@ -1,8 +1,7 @@
-<?php $title = htmlspecialchars($post['title']);
-$picture = htmlspecialchars($post['picture']);
-?>
+<?php
+$title = htmlspecialchars($post['title']);
+ob_start(); ?>
 
-<?php ob_start(); ?>
 <p><a class="btn btn-primary" href="index.php" role="button">Retour à la liste des billets</a></p>
 <div class="container">
 	<div class="row">
@@ -39,7 +38,7 @@ $picture = htmlspecialchars($post['picture']);
 		<div class="card-body">
 
 			<!-- Material form register -->
-			<form class="addComment" action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
+			<form class="addComment" action="/index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
 
 				<div class="addAuthor form-group row">
 					<label for="author" class="col-sm-3 col-form-label">Pseudo : </label>

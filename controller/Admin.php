@@ -1,5 +1,5 @@
 <?php
-use \Helene\Project\Model\ConnexionManager;
+
 require_once('model/ConnexionManager.php');
 
 function register($adminName, $adminEmail, $psw_hache)
@@ -18,7 +18,7 @@ function register($adminName, $adminEmail, $psw_hache)
 			throw new Exception ('Impossible d\'ajouter un autre administrateur !');
 		}
 		else {
-			echo ("vous êtes désormais administrateur du site");
+			echo ("vous avez désormais un autre administrateur du site");
 		}
 	}
 	else {
