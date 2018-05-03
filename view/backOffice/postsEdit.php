@@ -1,4 +1,11 @@
-<?php include ('header.php');
+<?php
+session_start();
+
+if (empty($_SESSION['id']))
+{
+		header("Location:/view/frontOffice/login.php");
+}
+include ('header.php');
 
 $action = '';
 if(isset($_GET['id']) && $_GET['id'] > 0) {
@@ -28,10 +35,6 @@ if(isset($_GET['id']) && $_GET['id'] > 0) {
 	?>
 
 	<form class="addPost" action="<?php echo $action; ?>" method="post">
-		<!--div class="form-group">
-		<label for="picture">Téléchargez votre image : </label>
-		<input id="picture" type="file" placeholder=" Votre image" name="picture"/>
-	</div-->
 
 	<div class="form-group">
 		<label for="title">Titre du chapitre : </label>

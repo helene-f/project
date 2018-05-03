@@ -35,25 +35,33 @@ function login()
 	//We try to compare password sent accross the form with the database password
 	$isPasswordCorrect = password_verify($_POST['password'], $logResult['password']);
 
-	if (!$logResult)
+	if ($isPasswordCorrect)
 	{
-		throw new Exception ('Mauvais identifiant ou mot de passe. Réessayez !');
-	}
-	else {
-		if ($isPasswordCorrect) {
+
+		if ($logResult['active'] == 1) {
 			session_start();
 			$_SESSION['id'] = $logResult['id'];
 			$_SESSION['admin'] = $_POST['adminName'];
 
 			header("Location:/view/backOffice/dashboard.php");
-
+			exit;
 		}
 		else {
-			throw new Exception ('Mauvais identifiant ou mot de passe !');
+			//Le compte est inactif
+
+			//Redirection
+			header("location: /view/frontOffice/login.php?message=Mauvais identifiant ou mot de passe !");
+			exit;
 		}
 	}
-}
 
+	else{
+
+		//Redirection
+		header("location: /view/frontOffice/login.php?message=Mauvais identifiant ou mot de passe !");
+		exit;
+	}
+}
 
 function logout()
 {

@@ -1,4 +1,12 @@
- <?php $title = 'Admin'; ?>
+<?php
+session_start();
+
+if (empty($_SESSION['id']))
+{
+		header("Location:/view/frontOffice/login.php");
+}
+
+$title = 'Admin'; ?>
 
 <!DOCTYPE html>
 <html lang="fr">

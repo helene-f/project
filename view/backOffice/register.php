@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (empty($_SESSION['id']))
+{
+		header("Location:/view/frontOffice/login.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 

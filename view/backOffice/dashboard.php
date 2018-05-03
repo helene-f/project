@@ -1,4 +1,10 @@
-<?php session_start();
+<?php
+session_start();
+
+if (empty($_SESSION['id']))
+{
+		header("Location:/view/frontOffice/login.php");
+}
 
 include ('header.php'); ?>
 
