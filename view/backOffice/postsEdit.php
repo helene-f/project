@@ -7,6 +7,7 @@ if (empty($_SESSION['id']))
 }
 include ('header.php');
 
+
 $action = '';
 if(isset($_GET['id']) && $_GET['id'] > 0) {
 	$action = '/admin.php?action=modifyPost&amp;id='.$post['id'];
@@ -21,11 +22,13 @@ if(isset($_GET['id']) && $_GET['id'] > 0) {
 
 <div class="container">
 
-	<?php if(isset($_GET['message']))
-	{
-		$message = $_GET['message']; ?>
-		<div class="alert alert-success alert-dismissible fade show" id="alert" role="alert">
-			<?php echo $message; ?>
+	<?php
+	if(isset($_SESSION['message'])) {
+	$message = ($_SESSION['message']);
+
+	?>
+		<div class="alert alert-success alert-dismissible fade show" role="alert">
+			<?php echo htmlspecialchars($message); ?>
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 				<span aria-hidden="true">&times;</span>
 			</button>

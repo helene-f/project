@@ -57,24 +57,3 @@ function addContact($contactName, $contactEmail)
 		echo ("vous êtes inscrit à la newsletter");
 	}
 }
-
-
-/*function searchNav($q)
-{
-	// on rend clean la requete de l'utilisateur
-	$q = preg_replace("#[^a-zA-Z ?0-9]#i", "", $_POST['q']);
-	// cette fonction prend en premier paramètre un pattern, i est sensible a la casse, replacer par une chaine vide - remplacer par une chaine vide, il faut faire la recherche au niveau de post query - tout ce qui n'est pas une lettre de a a z en minuscule. Permet de rendre clean ce que l'utilisateur a envoyé
-
-	$postManager = new PostManager();
-	$req = $postManager->searchWord($q);
-	$count = $req->rowCount();
-
-	require('view/frontOffice/search.php');
-
-	if($count >= 1) {
-		echo "<hr/> $count résultat(s) trouvé(s) pour <strong>$q</strong><hr/>";
-	}
-	else {
-		echo "<hr/> O résultat trouvé pour <strong>$q</strong><hr/>";
-	}
-}*/

@@ -1,13 +1,13 @@
-<?php
-session_start();
+<?php session_start();
 
 if (empty($_SESSION['id']))
 {
 		header("Location:/view/frontOffice/login.php");
 }
 
-include ('header.php'); ?>
-
+include ('header.php');
+?>
+<body>
 <div class="container">
 	<h2>
 		<?php if (isset($_SESSION['id']) AND isset($_SESSION['admin']))
@@ -23,7 +23,7 @@ include ('header.php'); ?>
 		<a role="button" class="btn btn-primary" href="/view/backOffice/postsEdit.php" aria-disabled="true">Ajouter un chapitre</a>
 		<a role="button" class="btn btn-secondary" href="/admin.php?action=getForTable" aria-disabled="true">Gérer vos chapitres</a>
 		<a role="button" class="btn btn-warning" href="/admin.php?action=listComments" aria-disabled="true">Gérer vos commentaires</a>
-		<a role="button" class="btn btn-warning" href="/view/backOffice/register.php" aria-disabled="true">Ajouter un nouvel administrateur</a>
+		<a role="button" class="btn btn-danger" href="/view/backOffice/register.php" aria-disabled="true">Ajouter un nouvel administrateur</a>
 	</div>
 
 

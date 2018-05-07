@@ -24,28 +24,28 @@ if (isset($_SESSION['admin'])) header("Location:/view/backOffice/dashboard.php")
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
 	<!-- Custom styles for this template -->
-
-	<link href="/public/css/login-style.css" rel="stylesheet">
 	<link href="/public/css/clean-blog.min.css" rel="stylesheet">
+	<link href="/public/css/login-style.css" rel="stylesheet">
+
 
 </head>
 <body>
 	<div class="container">
+
 		<div class="card card-container">
 			<h2 class="card-header">Connexion à votre espace</h2>
 			<div class="card-body">
-				<?php if(isset($_GET['message']))
-				{
-					$message = $_GET['message']; ?>
-					<div class="alert alert-danger alert-dismissible fade show" id="alert" role="alert">
-						<?php echo $message; ?>
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<?php
+				<?php
+				if(isset($_SESSION['adminNonActif'])) {
+					$message = ($_SESSION['adminNonActif']);
+					echo htmlspecialchars($message);
 				}
-				?>
+				elseif (isset($_SESSION['mauvaisPass'])) {
+					$alerte = ($_SESSION['mauvaisPass']);
+					echo htmlspecialchars($alerte);
+				} ?>
+
+
 				<h5 class="card-title">Identifiez-vous</h5>
 				<div class="card-text login-form">
 					<form class="connexionPlace" action="/index.php?action=login" method="post">
@@ -72,6 +72,11 @@ if (isset($_SESSION['admin'])) header("Location:/view/backOffice/dashboard.php")
 			</div>
 		</div>
 	</div>
+
+	<?php
+	$_SESSION = array();
+	session_destroy();
+	?>
 
 
 	<!-- Bootstrap core JavaScript -->

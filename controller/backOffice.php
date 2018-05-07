@@ -9,11 +9,14 @@ function addPost($title, $content)
 	$postManager = new PostManager();
 	$postEdit = $postManager->createPost($title, $content);
 
+
 	if ($postEdit === false) {
 		throw new Exception ('Impossible d\'ajouter le chapitre !');
 	}
 	else {
-		header('Location: view/backOffice/postsEdit.php?message=Chapitre créé');
+		session_start();
+		$_SESSION['message'] = 'Chapitre créé';
+		header('Location: view/backOffice/postsEdit.php?message='. $_SESSION['message']);
 	}
 }
 
@@ -58,7 +61,9 @@ function modifyPost($newTitle, $newContent, $postId)
 		throw new Exception('Impossible de modifier le chapitre !');
 	}
 	else {
-		header('Location: view/backOffice/postsEdit.php?message=Chapitre modifié');
+		session_start();
+		$_SESSION['message'] = 'Chapitre modifié';
+		header('Location: view/backOffice/postsEdit.php?message='. $_SESSION['message']);
 	}
 }
 

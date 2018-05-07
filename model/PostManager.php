@@ -68,14 +68,4 @@ class PostManager extends Manager
 
 		return $req;
 	}
-
-	/*
-	public function searchWord($q)
-	{
-	$db = $this->dbConnect();
-	$req = $db->prepare('SELECT id, title, content FROM posts WHERE title LIKE ? OR content LIKE ?');
-	$req->execute(array('%'.$q.'%', '%'.$q.'%'));
-
-	return $req;
-	}*/
 }

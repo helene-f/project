@@ -42,23 +42,29 @@ function login()
 			session_start();
 			$_SESSION['id'] = $logResult['id'];
 			$_SESSION['admin'] = $_POST['adminName'];
+			$_SESSION['adminNonActif'] = 'Votre compte administrateur n\'est plus actif';
+			$_SESSION['mauvaisPass'] = 'Mauvais identifiant ou mot de passe !';
 
 			header("Location:/view/backOffice/dashboard.php");
 			exit;
 		}
 		else {
-			//Le compte est inactif
+			//if the admin account is not active => redirection
 
 			//Redirection
-			header("location: /view/frontOffice/login.php?message=Mauvais identifiant ou mot de passe !");
+			session_start();
+			$_SESSION['adminNonActif'] = 'Votre compte administrateur n\'est plus actif';
+			header("location: /view/frontOffice/login.php?message=" . $_SESSION['adminNonActif']);
 			exit;
 		}
 	}
 
-	else{
+	else {
 
-		//Redirection
-		header("location: /view/frontOffice/login.php?message=Mauvais identifiant ou mot de passe !");
+		//If the admin name or password is not correct => redirection
+		session_start();
+		$_SESSION['mauvaisPass'] = 'Mauvais identifiant ou mot de passe !';
+		header("location: /view/frontOffice/login.php?message=" . $_SESSION['mauvaisPass']);
 		exit;
 	}
 }
