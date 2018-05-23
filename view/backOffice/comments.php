@@ -30,9 +30,9 @@ include ('header.php');
 		<?php foreach ($rowAll as $row){
 			?>
 			<tr>
-				<td><?php print_r($row['author']); ?></td>
-				<td><?php print_r($row['comment_date']); ?></td>
-				<td><?php print_r($row['comment']); ?></td>
+				<td><?php echo htmlspecialchars(print_r($row['author'])); ?></td>
+				<td><?php echo htmlspecialchars(print_r($row['comment_date'])); ?></td>
+				<td><?php echo htmlspecialchars(print_r($row['comment'])); ?></td>
 				<td>
 					<a class="btn btn-success" name="commentValidated" onclick="return confirm('Voulez-vous vraiment valider ce commentaire et le retrouver sur le blog ?')" href="/admin.php?action=validateComment&amp;id=<?php print_r($row['id']);?>">Valider</a>
 					<a class="btn btn-danger" name="commentDeleted" onclick="return confirm('Voulez-vous supprimer définitivement ce commentaire ?')" href="/admin.php?action=destroyComment&amp;id=<?php print_r($row['id']);?>&amp;post_id=<?php print_r($row['post_id']); ?>">Supprimer</a>
