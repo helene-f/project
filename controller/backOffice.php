@@ -16,7 +16,7 @@ function addPost($title, $content)
 	else {
 		session_start();
 		$_SESSION['message'] = 'Chapitre créé';
-		header('Location: view/backOffice/postsEdit.php?message='. $_SESSION['message']);
+		header('Location: view/backOffice/postsEdit.php');
 	}
 }
 
@@ -63,7 +63,7 @@ function modifyPost($newTitle, $newContent, $postId)
 	else {
 		session_start();
 		$_SESSION['message'] = 'Chapitre modifié';
-		header('Location: view/backOffice/postsEdit.php?message='. $_SESSION['message']);
+		header('Location: view/backOffice/postsEdit.php');
 	}
 }
 
