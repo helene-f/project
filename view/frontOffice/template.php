@@ -48,10 +48,10 @@
 						</div>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="/view/frontOffice/about.php">A propos</a>
+						<a class="nav-link" href="index.php?action=about">A propos</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="/view/frontOffice/contact.php">Contact</a>
+						<a class="nav-link" href="index.php?action=contact">Contact</a>
 					</li>
 
 				</ul>
