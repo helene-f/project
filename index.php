@@ -14,6 +14,15 @@ try {
             listPosts();
         }
 
+	elseif ($_GET['action'] == 'about') {
+		require('view/frontOffice/about.php');
+        }
+
+	elseif ($_GET['action'] == 'contact') {
+            // waiting for an active form, we had directly the require in the rooter instead of the controller for the moment
+			require('view/frontOffice/contact.php');
+        }
+
 
 		elseif ($_GET['action'] == 'post') {
 			if (isset($_GET['id']) && $_GET['id'] > 0) {
