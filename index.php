@@ -22,6 +22,10 @@ try {
             // waiting for an active form, we had directly the require in the rooter instead of the controller for the moment
 			require('view/frontOffice/contact.php');
         }
+	
+	elseif ($_GET['action'] == 'legal-notices') {
+		require('view/frontOffice/legal-notices.php');
+        }
 
 
 		elseif ($_GET['action'] == 'post') {
