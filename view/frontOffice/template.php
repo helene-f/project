@@ -140,7 +140,7 @@
 					<ul class="secondary-menu list-inline text-center">
 						<h6>Liens utiles</h6>
 						<li class="list-inline-item">
-							<a href="/view/frontOffice/legal-notices.php">Mentions légales</a>
+							<a href="index.php?action=legal-notices">Mentions légales</a>
 						</li>
 
 						<li class="list-inline-item">
